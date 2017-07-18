@@ -2,13 +2,15 @@
 #
 
 PORT=1234
+USER=read
+PWD=read
 DB=test
 COL=foo
 
 js=$(cat <<EOF
 db.getMongo().setSlaveOk();
 db = db.getMongo().getDB('admin');
-db.auth('read', 'read');
+db.auth('$USER', '$PWD');
 db = db.getMongo().getDB('$DB');
 cur = db.getCollection('$COL').find();
 while (cur.hasNext()) {
