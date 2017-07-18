@@ -19,4 +19,4 @@ while (cur.hasNext()) {
 EOF
 )
 
-mongo --port $PORT --eval "$js"
+mongo --port $PORT --quiet --eval "$js"
